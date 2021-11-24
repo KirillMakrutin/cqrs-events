@@ -1,3 +1,6 @@
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
 /.idea
 /axon-server/data/**
 /axon-server/eventdata/**

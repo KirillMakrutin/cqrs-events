@@ -1,0 +1,5 @@
+rootProject.name = 'cqrs-event-root'
+
+include 'user-cmd-api'
+include 'user-query-api'
+include 'user-core'
