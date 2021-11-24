@@ -1,0 +1,41 @@
+services:
+  axon-server:
+    container_name: axonserver_container
+    image: axoniq/axonserver
+    hostname: axonserver
+    ports:
+      - '8024:8024'
+      - '8124:8124'
+      - '8224:8224'
+    networks:
+      - spring-bank-net
+    volumes:
+      - ./axon-server/data:/data
+      - ./axon-server/eventdata:/eventdata
+      - ./axon-server/config:/config:ro
+    restart: always
+
+  mongodb:
+    image: mongo
+    container_name: mongodb_container
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./mongo:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+
+  mysql:
+    image: mysql
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'springBankRootPassword'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./database:/var/lib/mysql
+networks:
+  spring-bank-net:

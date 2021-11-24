@@ -1,0 +1,6 @@
+/.idea
+/axon-server/data/**
+/axon-server/eventdata/**
+/axon-server/config/**
+/database/**
+/mongo/**
